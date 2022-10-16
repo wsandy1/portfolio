@@ -9,6 +9,24 @@ html {
     font-size: 100%;
 } /*16px*/
 
+@media (max-width: 800px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+@media (max-width: 550px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 50%;
+    }
+}
+
 body {
     margin: 0;
     background: var(--bg);
@@ -20,6 +38,7 @@ body {
 
 p {
     margin-bottom: 1rem;
+    line-height: 2;
 }
 
 h1,

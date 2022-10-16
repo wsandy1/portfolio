@@ -12,9 +12,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@astrojs/vue": "^1.1.0",
     "@fontsource/playfair-display": "^4.5.12",
     "@fontsource/roboto": "^4.5.8",
-    "astro": "^1.5.0"
+    "astro": "^1.5.0",
+    "bootstrap-icons": "^1.9.1",
+    "vue": "^3.2.41"
   },
   "devDependencies": {
     "husky": "^8.0.1",
