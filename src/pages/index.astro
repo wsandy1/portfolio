@@ -5,6 +5,30 @@ import curves from "../images/curves.svg";
 
 <Layout>
     <div class="hero">
-        <img src={curves} />
+        <img src={curves} id="hero-background" />
     </div>
 </Layout>
+<style>
+    .hero {
+        height: 100vh;
+    }
+
+    #hero-background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    @media (max-width: 700px) {
+        #hero-background {
+            width: 150vw;
+        }
+    }
+
+    @media (max-width: 450px) {
+        #hero-background {
+            width: 200vw;
+        }
+    }
+</style>
