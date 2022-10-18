@@ -303,6 +303,8 @@ const featured = await Astro.glob("./studies/*.md").then((array) => {
         align-items: center;
         justify-content: center;
         transition: transform 1s ease;
+        width: 100%;
+        aspect-ratio: 1;
     }
 
     .contact div {
@@ -313,6 +315,7 @@ const featured = await Astro.glob("./studies/*.md").then((array) => {
 
     .contact-link {
         text-decoration: none !important;
+        width: 100%;
     }
 
     .contact:hover {
