@@ -1,5 +1,6 @@
 ---
 import FeaturedWork from "../components/FeaturedWork.vue";
+import OpenSource from "../components/OpenSource.vue";
 
 import Layout from "../layouts/Layout.astro";
 import curves from "../images/curves.svg";
@@ -76,7 +77,51 @@ const featured = await Astro.glob("./studies/*.md").then((array) => {
         </ul>
         <h4>WORK</h4>
     </main>
-    <FeaturedWork featured={featured} client:visible />
+    <FeaturedWork featured={featured} client:idle />
+    <main>
+        <h4>OPEN SOURCE</h4>
+        <p style="text-align: center">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="os-container">
+            <OpenSource
+                title="OSProject1"
+                desc="A short description"
+                start="#ff0000"
+                end="#ff8330"
+                client:idle
+            />
+            <OpenSource
+                title="OSProject2"
+                desc="A short description"
+                start="#ff0000"
+                end="#ff8330"
+                client:idle
+            />
+            <OpenSource
+                title="OSProject3"
+                desc="A short description"
+                start="#ff0000"
+                end="#ff8330"
+                client:idle
+            />
+            <OpenSource
+                title="OSProject4"
+                desc="A short description"
+                start="#ff0000"
+                end="#ff8330"
+                client:idle
+            />
+        </div>
+        <a href="" class="contact-link">
+            <div class="contact">
+                <div>
+                    <h4>GET IN TOUCH</h4>
+                    <p>I'm always open to new opportunities!</p>
+                </div>
+            </div>
+        </a>
+    </main>
 </Layout>
 
 <style>
@@ -238,5 +283,51 @@ const featured = await Astro.glob("./studies/*.md").then((array) => {
         margin-right: 5px;
         width: 20px;
         height: 20px;
+    }
+
+    .os-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        client: idle;
+    }
+
+    .contact {
+        background: url("../images/hex.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 800px;
+        height: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 1s ease;
+    }
+
+    .contact div {
+        transition: transform 1s ease;
+        text-align: center;
+        color: var(--light);
+    }
+
+    .contact-link {
+        text-decoration: none !important;
+    }
+
+    .contact:hover {
+        transform: rotate(8deg);
+    }
+
+    .contact:hover div {
+        transform: rotate(-8deg) scale(1.1);
+    }
+
+    .contact-link:active .contact {
+        transform: rotate(360deg);
+    }
+
+    .contact div h4 {
+        margin: 0;
     }
 </style>

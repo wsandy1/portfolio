@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, ref } from "vue";
+import { PropType, reactive, ref } from "vue";
 
 type Featured = {
     title: string;
@@ -8,30 +8,31 @@ type Featured = {
 }[];
 
 const props = defineProps({
-    featured: Array as PropType<Featured>,
+    featured: {
+        type: Array as PropType<Featured>,
+        required: true,
+    },
 });
-
-const bg = ref();
-
-function setBg(thumbnail: string | null) {
-    bg.value = thumbnail;
-}
+const featured = ref(props.featured.map((obj) => ({ ...obj, opacity: 0 })));
 </script>
 
 <template>
     <div class="wrapper">
-        <div class="list" @mouseleave="setBg(null)">
-            <h1
-                v-for="item in props.featured"
-                @mouseover="setBg(item.thumbnail)"
-            >
+        <div class="list">
+            <h1 v-for="item in featured">
                 {{ item.title }}
             </h1>
         </div>
-        <div
-            class="image"
-            :style="[bg !== null ? { backgroundImage: 'url(' + bg + ')' } : {}]"
-        ></div>
+        <div class="project-images">
+            <div
+                class="image"
+                v-for="item in featured"
+                :style="{
+                    background: 'url(' + item.thumbnail + ')',
+                    opacity: item.opacity,
+                }"
+            ></div>
+        </div>
     </div>
 </template>
 
@@ -56,11 +57,16 @@ h1:hover {
     text-align: right;
 }
 
-.image {
+.project-images {
     flex-grow: 1;
-    align-self: stretch;
+    position: relative;
+    overflow: hidden;
     border-radius: 30px;
-    margin-left: 100px;
+}
+
+.image {
+    position: absolute;
+    inset: 0;
 }
 
 /* we will explain what these classes do next! */

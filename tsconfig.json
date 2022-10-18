@@ -5,7 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
