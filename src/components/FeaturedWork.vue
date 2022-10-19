@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, reactive, ref } from "vue";
+import type { PropType } from "vue";
 
 type Featured = {
     title: string;
@@ -13,23 +13,21 @@ const props = defineProps({
         required: true,
     },
 });
-const featured = ref(props.featured.map((obj) => ({ ...obj, opacity: 0 })));
 </script>
 
 <template>
     <div class="wrapper">
         <div class="list">
-            <h1 v-for="item in featured">
+            <h1 v-for="item in props.featured">
                 {{ item.title }}
             </h1>
         </div>
         <div class="project-images">
             <div
                 class="image"
-                v-for="item in featured"
+                v-for="item in props.featured"
                 :style="{
                     background: 'url(' + item.thumbnail + ')',
-                    opacity: item.opacity,
                 }"
             ></div>
         </div>

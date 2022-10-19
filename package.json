@@ -21,22 +21,13 @@
         "vue": "^3.2.41"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.40.1",
-        "@typescript-eslint/parser": "^5.40.1",
-        "eslint": "^8.25.0",
-        "eslint-plugin-astro": "^0.20.0",
-        "eslint-plugin-vue": "^9.6.0",
         "husky": "^8.0.1",
         "lint-staged": "^13.0.3",
         "prettier": "^2.7.1",
         "prettier-plugin-astro": "^0.5.5"
     },
     "lint-staged": {
-        "**/*.{html,css,md,json}": [
-            "prettier --write --tab-width 4"
-        ],
-        "**/*.{js,ts,vue,astro,mjs}": [
-            "eslint --fix",
+        "**/*.{html,css,md,json,js,ts,vue,astro,mjs}": [
             "prettier --write --tab-width 4"
         ]
     }
