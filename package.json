@@ -1,34 +1,43 @@
 {
-  "name": "@example/basics",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "@astrojs/vue": "^1.1.0",
-    "@fontsource/playfair-display": "^4.5.12",
-    "@fontsource/roboto": "^4.5.8",
-    "astro": "^1.5.0",
-    "bootstrap-icons": "^1.9.1",
-    "vanilla-tilt": "^1.7.2",
-    "vue": "^3.2.41"
-  },
-  "devDependencies": {
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.5"
-  },
-  "lint-staged": {
-    "src/**/*.{html,ts,css,vue,astro,md}": [
-      "prettier --write --tab-width 4"
-    ]
-  }
+    "name": "@example/basics",
+    "type": "module",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@astrojs/vue": "^1.1.0",
+        "@fontsource/playfair-display": "^4.5.12",
+        "@fontsource/roboto": "^4.5.8",
+        "astro": "^1.5.0",
+        "bootstrap-icons": "^1.9.1",
+        "vanilla-tilt": "^1.7.2",
+        "vue": "^3.2.41"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.40.1",
+        "@typescript-eslint/parser": "^5.40.1",
+        "eslint": "^8.25.0",
+        "eslint-plugin-astro": "^0.20.0",
+        "eslint-plugin-vue": "^9.6.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1",
+        "prettier-plugin-astro": "^0.5.5"
+    },
+    "lint-staged": {
+        "**/*.{html,css,md,json}": [
+            "prettier --write --tab-width 4"
+        ],
+        "**/*.{js,ts,vue,astro,mjs}": [
+            "eslint --fix",
+            "prettier --write --tab-width 4"
+        ]
+    }
 }
