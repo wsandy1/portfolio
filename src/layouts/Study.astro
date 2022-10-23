@@ -4,5 +4,58 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout>
-    <h1>{frontmatter.title}</h1>
+    <header>
+        <h1>{frontmatter.title}</h1>
+    </header>
+    <div class="meta">
+        <p class="date">{frontmatter.date}</p>
+        <h4 class="subtitle">{frontmatter.subtitle}</h4>
+        <div class="properties">
+            <div class="column">
+                <p class="title">ROLE</p>
+                <p class="content">{frontmatter.role}</p>
+            </div>
+            <div class="column">
+                <p class="title">URL</p>
+                <p class="content">{frontmatter._url}</p>
+            </div>
+        </div>
+    </div>
+    <div class="slot"><slot /></div>
 </Layout>
+
+<style>
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .meta {
+        width: 65%;
+        padding: 0 5%;
+        margin: 0 auto;
+    }
+
+    .date {
+        text-align: center;
+        width: 100%;
+    }
+
+    .properties {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+</style>
+<style is:global>
+    .slot {
+        width: 65%;
+        padding: 0 5%;
+        margin: 0 auto;
+    }
+
+    .slot img {
+        width: 100%;
+    }
+</style>
